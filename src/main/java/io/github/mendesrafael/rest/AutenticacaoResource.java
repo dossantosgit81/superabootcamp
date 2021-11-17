@@ -5,8 +5,8 @@ import javax.inject.Inject;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 
-import io.github.mendesrafael.rest.dto.AutenticacaoDTO;
-import io.github.mendesrafael.rest.dto.AutenticacaoResponseDTO;
+import io.github.mendesrafael.domain.model.dto.AutenticacaoDTO;
+import io.github.mendesrafael.domain.model.dto.AutenticacaoResponseDTO;
 import io.github.mendesrafael.service.AutenticacaoService;
 
 @Path("/auth")

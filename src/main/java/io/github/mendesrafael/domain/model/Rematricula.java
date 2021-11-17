@@ -40,4 +40,5 @@ public class Rematricula extends PanacheEntityBase{
 	@JoinColumn(name="ALUN_ID")
 	public PessoaFisica pessoaFisica;
 	
+	
 }

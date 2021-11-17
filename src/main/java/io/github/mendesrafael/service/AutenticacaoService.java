@@ -5,8 +5,8 @@ import javax.inject.Inject;
 import javax.ws.rs.NotAuthorizedException;
 
 import io.github.mendesrafael.domain.model.Usuario;
-import io.github.mendesrafael.rest.dto.AutenticacaoDTO;
-import io.github.mendesrafael.rest.dto.AutenticacaoResponseDTO;
+import io.github.mendesrafael.domain.model.dto.AutenticacaoDTO;
+import io.github.mendesrafael.domain.model.dto.AutenticacaoResponseDTO;
 import io.github.mendesrafael.util.GerarToken;
 
 @ApplicationScoped

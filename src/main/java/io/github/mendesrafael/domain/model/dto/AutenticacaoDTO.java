@@ -1,4 +1,4 @@
-package io.github.mendesrafael.rest.dto;
+package io.github.mendesrafael.domain.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
