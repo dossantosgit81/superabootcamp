@@ -4,6 +4,8 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.NotAuthorizedException;
 
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
 import io.github.mendesrafael.domain.model.Usuario;
 import io.github.mendesrafael.domain.model.dto.AutenticacaoDTO;
 import io.github.mendesrafael.domain.model.dto.AutenticacaoResponseDTO;
@@ -18,13 +20,18 @@ public class AutenticacaoService {
 	
 	public AutenticacaoResponseDTO efetuarLogin(AutenticacaoDTO autenticacaoDTO) {
 		
-		var result = usuarioEntity.findBylogin(autenticacaoDTO.getLogin());
+		var user = usuarioEntity.findBylogin(autenticacaoDTO.getLogin());
 		
-		if(result.isEmpty()) {
+		if(user.isEmpty()) {
 			throw new NotAuthorizedException("Login ou senha invalidos");
 		}
 		
-		var token = gerarToken.GeradorDeToken(result.get());
+		if(!BCrypt.checkpw(autenticacaoDTO.getPassword(), user.get().getPassword())) {
+			System.out.println("Aqui");
+			throw new NotAuthorizedException("Login ou senha invalidos");
+		}
+		
+		var token = gerarToken.GeradorDeToken(user.get());
 		
 		var responseDTO = 
 				AutenticacaoResponseDTO

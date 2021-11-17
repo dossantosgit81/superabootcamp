@@ -31,6 +31,7 @@ public class Usuario extends PanacheEntityBase{
 	private String login;
 	
 	@Column(name="usu_pwd")
+	@Getter
 	private String password;
 	
 	@Column(name="usu_dtcadastro")
