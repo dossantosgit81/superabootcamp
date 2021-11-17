@@ -29,15 +29,12 @@ public class RematriculaResources {
 	@Authenticated
 	@Produces(MediaType.APPLICATION_JSON)
 	@RequestScoped
-	public List<RematriculaDTO> listAll(@Context SecurityContext ctx){
-		if(jwt.getName() != null || !ctx.getUserPrincipal().getName().equals(jwt.getName())) {
+	public List<RematriculaDTO> listAll(/*@Context SecurityContext ctx*/){
+		//if(jwt.getName() != null || !ctx.getUserPrincipal().getName().equals(jwt.getName())) {
 			
 			return RematriculaDTO.transformTypeList(Rematricula.findAll().list());
 		}
-		
-    
-		throw new BadRequestException("Token invalido");
-	}
+//	throw new BadRequestException("Token invalido")
 	
 	
 
