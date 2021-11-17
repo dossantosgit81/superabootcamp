@@ -3,6 +3,7 @@ package io.github.mendesrafael.domain.model;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,33 +16,34 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 @Entity
 @Table(name="PESSOA_FISICA")
+@ApplicationScoped
 public class PessoaFisica extends PanacheEntityBase{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ALUN_ID")
-	public Long id;
+	private Long id;
 	
 	@Column(name="ALUN_DT_NASCIMENTO")
-	public LocalDateTime dataNascimento;
+	private LocalDateTime dataNascimento;
 	
 	@Column(name ="ALUN_NOME")
-	public String nome;
+	private String nome;
 	
 	@Column(name="ALUN_EMAIL")
-	public String email;
+	private String email;
 	
 	@Column(name="ALUN_CPF")
-	public String cpf;
+	private String cpf;
 	
 	@Column(name="ALUN_TELEFONE1")
-	public String telefone1;
+	private String telefone1;
 	
 	@Column(name="ALUN_TELEFONE2")
-	public String telefone2;
+	private String telefone2;
 	
 	@OneToMany(mappedBy="pessoaFisica")
-	public List<Rematricula> rematriculas;
+	private List<Rematricula> rematriculas;
 
 	
 }

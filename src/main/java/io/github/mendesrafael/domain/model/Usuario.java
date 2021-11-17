@@ -1,7 +1,9 @@
 package io.github.mendesrafael.domain.model;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,33 +14,41 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import lombok.Getter;
 
 @Entity
 @Table(name="USUARIOS")
+@ApplicationScoped
 public class Usuario extends PanacheEntityBase{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="usu_id")
-	public Long id;
+	private Long id;
 	
 	@Column(name="usu_login")
-	public String login;
+	@Getter
+	private String login;
 	
 	@Column(name="usu_pwd")
-	public String password;
+	private String password;
 	
 	@Column(name="usu_dtcadastro")
-	public LocalDateTime dataCadastro;
+	private LocalDateTime dataCadastro;
 	
 	@Column(name="usu_dtexpiracao")
-	public LocalDateTime dataExpiracao;
+	private LocalDateTime dataExpiracao;
 	
 	@Column(name="usu_situacao")
 	public String situacao;
 	
 	@OneToOne
 	@JoinColumn(name="alun_id")
-	public PessoaFisica pessoaFisica;
+	private PessoaFisica pessoaFisica;
+
+	public Optional<Usuario> findBylogin(String login){
+		return find("login", login).firstResultOptional();
+	}
+	
 	
 }
