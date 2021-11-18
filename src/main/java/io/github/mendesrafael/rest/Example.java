@@ -11,9 +11,9 @@ import java.math.BigDecimal;
 public class Example { 
     // Find your Account Sid and Token at twilio.com/console 
     public static final String ACCOUNT_SID = "AC242bfd00d6785abbe305758f0e01e049"; 
-    public static final String AUTH_TOKEN = "80520a0703117ccf89c6ad330e7023fd"; 
+    public static final String AUTH_TOKEN = "d3d0c93e9b4de13ec30d9fffb68faf4e"; 
  
-    public static void main(String[] args) { 
+    public void main() { 
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN); 
         Message message = Message.creator( 
                 new com.twilio.type.PhoneNumber("+5589981061554"),  

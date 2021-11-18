@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import lombok.Getter;
 
 @Entity
 @Table(name="PESSOA_FISICA")
@@ -37,9 +38,11 @@ public class PessoaFisica extends PanacheEntityBase{
 	private String cpf;
 	
 	@Column(name="ALUN_TELEFONE1")
+	@Getter
 	private String telefone1;
 	
 	@Column(name="ALUN_TELEFONE2")
+	@Getter
 	private String telefone2;
 	
 	@OneToMany(mappedBy="pessoaFisica")
