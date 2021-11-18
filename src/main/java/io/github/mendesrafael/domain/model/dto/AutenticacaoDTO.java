@@ -1,5 +1,8 @@
 package io.github.mendesrafael.domain.model.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,8 +14,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AutenticacaoDTO {
 	
+	@NotBlank(message ="Cpf não pode ser vazio")
+	@Size(min=11 , max=11, message="O campo precisa ter 11 caracteres")
 	private String login;
 	
+	@NotBlank(message="Senha não pode ser vazia")
+	@Size(min=6, max=20, message="O campo precisa estar entre 6 e 20 caracteres")
 	private String password;
 
 }

@@ -27,7 +27,6 @@ public class AutenticacaoService {
 		}
 		
 		if(!BCrypt.checkpw(autenticacaoDTO.getPassword(), user.get().getPassword())) {
-			System.out.println("Aqui");
 			throw new NotAuthorizedException("Login ou senha invalidos");
 		}
 		
@@ -36,7 +35,7 @@ public class AutenticacaoService {
 		var responseDTO = 
 				AutenticacaoResponseDTO
 				.builder()
-					.login(AutenticacaoResponseDTO.loginQuebrado(autenticacaoDTO.getLogin()))
+					.login(autenticacaoDTO.getLogin())
 					.token(token).build();
 		
 		return responseDTO;
