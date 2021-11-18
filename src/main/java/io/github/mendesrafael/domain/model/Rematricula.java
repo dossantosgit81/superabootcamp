@@ -1,6 +1,7 @@
 package io.github.mendesrafael.domain.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.Column;
@@ -13,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import io.quarkus.hibernate.orm.panache.PanacheQuery;
+import io.quarkus.panache.common.Parameters;
 
 @Entity
 @Table(name="REMATRICULA")

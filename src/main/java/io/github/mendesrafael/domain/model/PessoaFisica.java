@@ -47,6 +47,7 @@ public class PessoaFisica extends PanacheEntityBase{
 	private String telefone2;
 	
 	@OneToMany(mappedBy="pessoaFisica")
+	@Getter
 	private List<Rematricula> rematriculas;
 
 	
