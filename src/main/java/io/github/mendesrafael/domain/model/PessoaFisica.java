@@ -32,6 +32,7 @@ public class PessoaFisica extends PanacheEntityBase{
 	private String nome;
 	
 	@Column(name="ALUN_EMAIL")
+	@Getter
 	private String email;
 	
 	@Column(name="ALUN_CPF")

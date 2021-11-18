@@ -40,7 +40,7 @@ public class TelefoneService {
 	
 	public PessoaFisica buscarPessoa(Long id) {
 		 
-		PessoaFisica pf = PessoaFisica.findById(id);
+		PessoaFisica pf = BuscarPessoaFisica(id);
 		
 		if(pf == null) {
 			throw new NotFindEntityException("Usuario não encontrado");
@@ -49,8 +49,13 @@ public class TelefoneService {
 		return pf;
 	    
 	}
+
+	public PessoaFisica BuscarPessoaFisica(Long id) {
+		PessoaFisica pf = PessoaFisica.findById(id);
+		return pf;
+	}
 	
-	private Integer gerarCodigo() {
+	public static Integer gerarCodigo() {
 		Random random = new Random();
 		
 		return random.nextInt(10000);
