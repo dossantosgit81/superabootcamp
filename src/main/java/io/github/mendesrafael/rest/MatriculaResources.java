@@ -14,6 +14,7 @@ import org.eclipse.microprofile.jwt.JsonWebToken;
 import io.github.mendesrafael.domain.model.PessoaFisica;
 import io.github.mendesrafael.domain.model.Rematricula;
 import io.github.mendesrafael.domain.model.dto.RematriculaDTO;
+import io.quarkus.security.Authenticated;
 
 //Sei que ficou errado , mas já é 18:53 do dia 18 e eu nem comecei o front ainda
 @Path("/usuarios")
@@ -24,7 +25,7 @@ public class MatriculaResources {
 	@Inject JsonWebToken jwt;
 	
 	@GET
-	//@Authenticated
+	@Authenticated
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{idUsuario}/matriculas")
 	public List<RematriculaDTO> listAll(@PathParam("idUsuario") Long idUsuario){

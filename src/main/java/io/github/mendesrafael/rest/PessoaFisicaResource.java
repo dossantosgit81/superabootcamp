@@ -13,6 +13,7 @@ import io.github.mendesrafael.domain.model.dto.PessoaCodigoDTO;
 import io.github.mendesrafael.exceptions.CodigoNotValidException;
 import io.github.mendesrafael.service.EmailService;
 import io.github.mendesrafael.service.TelefoneService;
+import io.quarkus.security.Authenticated;
 
 @Path("/pessoa-fisica")
 public class PessoaFisicaResource {
@@ -27,6 +28,7 @@ public class PessoaFisicaResource {
 
 	@GET
 	@Path("/{idPessoa}/contato-one/{telefoneAValidar}/tfa")
+	@Authenticated
 	public Response enviarCodigoTelefone1(@PathParam("idPessoa") Long idPessoa, @PathParam("telefoneAValidar") Long telefoneAValidar){
 		
 		PessoaFisica pf ;
@@ -45,6 +47,7 @@ public class PessoaFisicaResource {
 	
 	@PUT
 	@Path("/contato/tfa")
+	@Authenticated
 	public Response enviarCodigoTelefone(PessoaCodigoDTO pfdto){
 		
 		if(pfdto.getCodigo().equals(codigo) == true) {
@@ -57,6 +60,7 @@ public class PessoaFisicaResource {
 	
 	@GET
 	@Path("/{idPessoa}/email/tfa")
+	@Authenticated
 	public Response enviarEmail(@PathParam("idPessoa") Long idPessoa) {
 		
 		codigoEmail = emailService.enviarEmail(idPessoa);
@@ -71,6 +75,7 @@ public class PessoaFisicaResource {
 	
 	@PUT
 	@Path("/email/tfa")
+	@Authenticated
 	public Response enviarCodigoEmail(PessoaCodigoDTO pfdto){
 		
 		if(pfdto.getCodigo().equals(codigoEmail) == true) {
