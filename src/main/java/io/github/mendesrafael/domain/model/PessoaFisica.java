@@ -23,6 +23,7 @@ public class PessoaFisica extends PanacheEntityBase{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ALUN_ID")
+	@Getter
 	private Long id;
 	
 	@Column(name="ALUN_DT_NASCIMENTO")

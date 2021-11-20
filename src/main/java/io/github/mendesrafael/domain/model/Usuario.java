@@ -45,6 +45,7 @@ public class Usuario extends PanacheEntityBase{
 	
 	@OneToOne
 	@JoinColumn(name="alun_id")
+	@Getter
 	private PessoaFisica pessoaFisica;
 
 	public Optional<Usuario> findBylogin(String login){

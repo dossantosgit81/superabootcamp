@@ -35,7 +35,7 @@ public class AutenticacaoService {
 		var responseDTO = 
 				AutenticacaoResponseDTO
 				.builder()
-					.login(autenticacaoDTO.getLogin())
+					.id(user.get().getPessoaFisica().getId())
 					.token(token).build();
 		
 		return responseDTO;
