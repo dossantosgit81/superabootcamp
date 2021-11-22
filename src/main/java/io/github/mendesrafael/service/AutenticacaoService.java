@@ -9,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 import io.github.mendesrafael.domain.model.Usuario;
 import io.github.mendesrafael.domain.model.dto.AutenticacaoDTO;
 import io.github.mendesrafael.domain.model.dto.AutenticacaoResponseDTO;
+import io.github.mendesrafael.exceptions.NotFindEntityException;
 import io.github.mendesrafael.util.GerarToken;
 
 @ApplicationScoped
@@ -23,7 +24,13 @@ public class AutenticacaoService {
 		var user = usuarioEntity.findBylogin(autenticacaoDTO.getLogin());
 		
 		if(user.isEmpty()) {
-			throw new NotAuthorizedException("Login ou senha invalidos");
+			throw new NotFindEntityException("Entidade não encontrada");
+		}
+		
+		if(user.isPresent()) {
+			if(!user.get().getLogin().equals(autenticacaoDTO.getLogin())) {
+				throw new NotAuthorizedException("Login ou senha invalidos");
+			}
 		}
 		
 		if(!BCrypt.checkpw(autenticacaoDTO.getPassword(), user.get().getPassword())) {

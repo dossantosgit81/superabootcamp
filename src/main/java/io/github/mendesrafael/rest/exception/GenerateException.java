@@ -17,24 +17,28 @@ import io.github.mendesrafael.rest.model.ObjectErro;
 @Provider
 public class GenerateException implements ExceptionMapper<Exception> {
 
+	private final static int NOT_AUTHORIZED= 401;
+	
 	@Override
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response toResponse(Exception e) {
 		if(e instanceof NotFindEntityException) {
 			ObjectErro objectErro = new ObjectErro(e.getMessage());
-			System.out.println(5);
 			return Response.status(Status.NOT_FOUND).entity(objectErro).build();
 		}
 		
 		if(e instanceof NotAuthorizedException) {
 			ObjectErro objectErro = new ObjectErro(e.getMessage());
-			System.out.println(4);
-			return Response.status(Status.NOT_FOUND).entity(objectErro).build();
+			return Response.status(NOT_AUTHORIZED).entity(objectErro).build();
 		}
 		
 		if(e instanceof CodigoNotValidException) {
 			ObjectErro objectErro = new ObjectErro(e.getMessage());
-			System.out.println(2);
+			return Response.status(Status.NOT_FOUND).entity(objectErro).build();
+		}
+		
+		if(e instanceof NotFindEntityException) {
+			ObjectErro objectErro = new ObjectErro(e.getMessage());
 			return Response.status(Status.NOT_FOUND).entity(objectErro).build();
 		}
 		
