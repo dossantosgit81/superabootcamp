@@ -1,5 +1,13 @@
 # superabootcamp Project
 
+# RODE O DOCKER
+
+### docker run -d --name bootcamp-sqlserver -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Bootcamp@123" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-CU13-ubuntu-20.04
+
+#### Crie um banco de dados com o nome supera_bootcamp
+
+##### mvn quarkus:dev
+
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
