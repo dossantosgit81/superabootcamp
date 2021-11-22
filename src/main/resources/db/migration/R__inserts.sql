@@ -12,7 +12,7 @@ VALUES('1998-01-02 00:00:00.000', 'John', 'john@gmail.com','12345678914' ,'98745
 
 INSERT INTO USUARIOS
 (usu_login, usu_pwd, usu_dtcadastro, usu_dtexpiracao, usu_situacao, alun_id)
-VALUES('12345678912', '$2a$10$1/Xo4yEJMvdTSBC5XDWKKOlyL.dzkTyS4aAnMqKPmNUew4wRf.MHG', '1998-01-02 00:00:00.000', '1998-02-02 00:00:00.000', 'Pendente', 1);
+VALUES('12345678912', '$2a$04$ltca1QWorx9KhToeh6Pke.kdQERUWcaUQzWoSQLltkbhfMb6edh6u', '1998-01-02 00:00:00.000', '1998-02-02 00:00:00.000', 'Pendente', 1);
 
 INSERT INTO USUARIOS
 (usu_login, usu_pwd, usu_dtcadastro, usu_dtexpiracao, usu_situacao, alun_id)
